@@ -18,22 +18,7 @@
 			var v1=3,
 				v2=7;
 
-			// want the same groups colors in both graph and slider
-			var color = d3.scaleOrdinal(d3.schemeCategory20);
-			for(var i=0;i<11;i++){
-				color(i);
-			}
-			// graph is not fully componentized but returns a refresh function
-			var myGraph = graph(color);
-
-			function updateGraph(min, max){
-				var data = getData(min, max);
-				myGraph.restart(data);
-			}
-
-			setupSlider(v1, v2, updateGraph, color);
-			updateGraph(v1, v2);
-
+			setupSlider(2010, 2017);
 		}
 		</script>
 	</head>
@@ -42,10 +27,7 @@
 
 		<div class="header">
 			<div class="slider-holder"></div>
-			<div class="github"><a href="https://github.com/evoluteur/d3-dual-range-slider">GitHub</a></div>
 		</div>
-
-		<svg id="graph" width="960" height="600"></svg>
 
 	</body>
 	

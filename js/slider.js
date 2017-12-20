@@ -1,19 +1,19 @@
 
-function setupSlider(v1, v2, updateGraph, color){
+function setupSlider(v1, v2){
 
 var sliderVals=[v1, v2],
-    width = 400,
+    width = 600,
     svg = d3.select(".slider-holder").append("svg")
       .attr('width', width+30)
       .attr('height', 50);
 
 var x = d3.scaleLinear()
-    .domain([0, 10])
+    .domain([2010, 2017])
     .range([0, width])
     .clamp(true);
 
-var xMin=x(0),
-    xMax=x(10)
+var xMin=x(2010),
+    xMax=x(2017)
 
 var slider = svg.append("g")
     .attr("class", "slider")
@@ -33,12 +33,11 @@ slider.insert("g", ".track-overlay")
     .attr("class", "ticks")
     .attr("transform", "translate(10,24)")
   .selectAll("text")
-  .data(x.ticks(10))
+  .data(x.ticks(7))
   .enter().append("text")
     .attr("x", x)
     .attr("text-anchor", "middle")
     .style("font-weight", "bold")
-    .style("fill", function(x){return color(x);})
     .text(function(d) { return d; });
 
 var handle = slider.selectAll("rect")
@@ -87,7 +86,8 @@ function endDrag(d){
       .attr("x1", 10+x(v1))
       .attr("x2", 10+x(v2))
 
-  updateGraph(v1, v2); 
+  console.log(v1);
+  console.log(v2);
 }
 
 }
