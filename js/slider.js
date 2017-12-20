@@ -1,3 +1,6 @@
+window.onload = function(){
+  setupSlider(2012, 2017);
+}
 
 function setupSlider(v1, v2){
 
